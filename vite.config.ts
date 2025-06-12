@@ -3,6 +3,10 @@ import { minify } from 'html-minifier';
 
 export default defineConfig({
   plugins: [htmlMinify()],
+  test: {
+    environment: 'jsdom',
+    globals: true, // This can help with 'beforeEach is not defined' if not already default
+  },
 });
 
 const htmlComponentFile = /\.component\.html\?inline$/;
