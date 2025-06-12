@@ -1,0 +1,12 @@
+{
+  "source": {
+    "include": ["./temp_js_for_docs"],
+    "includePattern": ".+\\.js$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "opts": {
+    "destination": "./docs",
+    "recurse": true
+  },
+  "plugins": ["jsdoc-plugin-typescript"]
+}
