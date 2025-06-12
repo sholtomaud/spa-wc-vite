@@ -104,10 +104,10 @@ The solution will support:
 
 ### 5.2 Documentation
 
-- [ ] All modules and public interfaces must be documented with `JSDoc`
-- [ ] README files per major subdirectory
-- [ ] Auto-generate documentation with `vite-plugin-jsdoc` or equivalent
-- [ ] A `docs/` directory to store the static output (optional)
+- [x] All modules and public interfaces must be documented with `JSDoc`
+- [x] README files per major subdirectory
+- [x] Auto-generate documentation with `jsdoc
+- [x] A `docs/` directory to store the static output (optional)
 
 ---
 
