@@ -5,9 +5,22 @@ import store from '../store';
 const template = document.createElement('template');
 template.innerHTML = `<style>${css}</style>${html}`;
 
+/**
+ * The tag name for the app-controls custom element.
+ * @type {string}
+ */
 export const APP_CONTROLS_TAG_NAME = 'app-controls';
 
+/**
+ * Represents the controls component that allows interaction with the store.
+ * @extends {HTMLElement}
+ */
 export class AppControlsComponent extends HTMLElement {
+  /**
+   * Creates an instance of AppControlsComponent.
+   * Sets up event listeners for buttons and input fields to modify the store state.
+   * Subscribes to store changes to update the input field.
+   */
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
