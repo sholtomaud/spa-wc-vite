@@ -62,9 +62,14 @@
       window.onload = () => {
         route(window.location.pathname);
       };
+
+      // Ensure app-controls component is registered
+      import('./src/controls/controls.component.ts');
     </script>
   </head>
   <body>
+    <app-controls></app-controls>
+    <hr />
     <nav>
       <ul>
         <li>
@@ -78,7 +83,6 @@
         </li>
       </ul>
     </nav>
-    <hr />
     <div id="router-outlet"></div>
     <hr />
     Code:
