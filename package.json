@@ -14,12 +14,18 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "test": "vitest run"
+    "test": "vitest run",
+    "docs": "tsc && jsdoc -c jsdoc.json && rm -rf ./temp_js_for_docs"
   },
   "devDependencies": {
+
+    "better-docs": "^2.7.3",
     "jsdoc": "^4.0.4",
+    "jsdoc-plugin-typescript": "^3.2.0",
+
     "jsdom": "^26.1.0",
     "sass": "1.53.0",
+    "typescript": "^5.8.3",
     "vite": "^6.3.5",
     "vitest": "^3.2.3"
   }

@@ -7,7 +7,9 @@
     "skipLibCheck": true,
     "moduleResolution": "bundler",
     "isolatedModules": true,
-    "noEmit": true,
+    "noEmit": false,
+    "outDir": "./temp_js_for_docs",
+    "rootDir": "./src",
     "strict": true,
     "noUnusedLocals": true,
     "noImplicitReturns": true,
@@ -15,5 +17,6 @@
     "noPropertyAccessFromIndexSignature": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "types"]
+  "include": ["src", "types"],
+  "exclude": ["node_modules", "src/**/*.test.ts"]
 }
