@@ -41,7 +41,7 @@ The solution will support:
 
 ### 3.1 Component Architecture
 
-- [ ] Use Web Standards: ES Modules, Custom Elements API
+- [x] Use Web Standards: ES Modules, Custom Elements API
 - [ ] Shadow DOM encapsulation, scoped CSS
 - [ ] Lifecycle-aware component composition
 
