@@ -33,3 +33,5 @@ export class AppContentComponent extends HTMLElement {
     this.shadowRoot!.querySelector('.message')!.textContent = ` ${message}`;
   }
 }
+
+customElements.define(APP_CONTENT_TAG_NAME, AppContentComponent);
