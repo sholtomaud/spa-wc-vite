@@ -1,148 +1,171 @@
-# LLM Delivery Requirements Document: SPA Enhancement Project
+# Vanilla Web Component SPA Framework Requirements Document
 
 ## 1. Introduction
 
-This document outlines the requirements for integrating Large Language Model (LLM) capabilities to enhance specific features within the existing Single Page Application (SPA). The goal is to leverage LLMs to improve user experience, streamline development, and provide intelligent functionalities where appropriate.
+This document defines the requirements for delivering a **fully functional Single Page Application (SPA) framework** built using **vanilla Web Components**. The goal is to produce an **enterprise-ready**, **production-quality**, and **progressive** architecture that serves as a foundation for modern web applications.
 
-## 2. Project Goals & Scope (LLM Focus)
+The solution will support:
 
-The primary goal is to empower the SPA with intelligent features and automated assistance, specifically focusing on:
+- Progressive Web App (PWA) capabilities
+- Modern development tooling (Vite, Vitest)
+- GitHub Actions-based CI/CD for both the framework and example app
+- Example application with good enterprise-grade UI/UX design
+- Strong documentation and test coverage standards
 
-- [ ] Generating relevant content or responses based on user input or application state.
-- [ ] Assisting in development tasks by generating code snippets or documentation.
-- [ ] Providing proactive insights or suggestions to users.
+---
 
-> ❌ **Out of Scope:** Full replacement of human-driven logic for core SPA functionalities. The LLM is an enhancement tool.
+## 2. Project Goals & Scope
 
-## 3. LLM Use Cases & Functional Requirements
+### In Scope
 
-### 3.1. Comprehensive State Management (LLM-Assisted Development & Documentation)
+- [ ] Native Web Component SPA framework
+- [ ] Routing, state, and persistent storage built-in
+- [ ] Fully working PWA example app
+- [ ] Developer tooling: Vite, Vitest
+- [ ] CI/CD pipelines using GitHub Actions for:
+  - [ ] The framework
+  - [ ] The example app
+- [ ] Enterprise-ready CSS structure and styles
+- [ ] Local dev environment documentation and setup
+- [ ] Full test coverage (TDD-driven approach)
+- [ ] Mandatory `JSDoc` for all exported functions and public methods
 
-- [ ] State Definition Assistance  
-  - Input: Natural language description of state.
-  - Output: JSON schema / TypeScript interface.
-  - Criteria: Syntactically correct, semantically relevant.
+### Out of Scope
 
-- [ ] Global Store Documentation Generation  
-  - Input: Global store code or description.
-  - Output: Markdown docs (purpose, variables, usage).
-  - Criteria: Clear, accurate, formatted.
+- ❌ React, Vue, Angular, Lit or other 3rd-party component frameworks
+- ❌ Backend/API services (though stubs may be used in examples)
 
-- [ ] Boilerplate Code Generation (Component State)  
-  - Input: Component name + state summary.
-  - Output: Web Component structure with getters/setters.
-  - Criteria: Valid and reduces manual setup.
+---
 
-### 3.2. Robust Error Handling and Logging
+## 3. Core Functional Requirements
 
-- [ ] Error Message Generation (User-Facing)  
-  - Input: Error code/context/tone.
-  - Output: Friendly UI message.
-  - Criteria: Non-technical, avoids sensitive info.
+### 3.1 Component Architecture
 
-- [ ] Log Analysis and Suggestion (Developer-Facing)  
-  - Input: Log snippet.
-  - Output: Summary, possible causes, next steps.
-  - Criteria: Relevant and actionable.
+- [ ] Use Web Standards: ES Modules, Custom Elements API
+- [ ] Shadow DOM encapsulation, scoped CSS
+- [ ] Lifecycle-aware component composition
 
-### 3.3. Authentication and Authorization (Knowledge & Best Practices)
+### 3.2 State Management
 
-- [ ] Security Best Practice Guidance  
-  - Input: Query (e.g., token storage, JWT refresh).
-  - Output: Best practices + tradeoffs.
-  - Criteria: Up-to-date and context-relevant.
+- [ ] Local and global reactive state modules
+- [ ] Observer/subscriber pattern
+- [ ] Support derived/computed state
+- [ ] `JSDoc` documentation required
 
-- [ ] RBAC Logic Generation (Conceptual)  
-  - Input: Roles + permissions.
-  - Output: Pseudocode or high-level diagram.
-  - Criteria: Clarifies role-permission-UI linkages.
+### 3.3 Persistent Storage
 
-### 3.4. Data Fetching and Caching Strategy
+- [ ] LocalStorage/sessionStorage wrapper utilities
+- [ ] Serialization, hydration, validation
+- [ ] Optional schema support (JSON structure validation)
 
-- [ ] API Service Boilerplate Generation  
-  - Input: Endpoint, method, sample data.
-  - Output: Fetch wrapper with error handling.
-  - Criteria: Runnable, reusable, minimal.
+### 3.4 Routing System
 
-- [ ] Caching Strategy Recommendation  
-  - Input: Data type, frequency, performance target.
-  - Output: Cache method (e.g., `localStorage`, in-memory).
-  - Criteria: Matches performance needs.
+- [ ] Hash or History API routing (configurable)
+- [ ] Dynamic, nested routes
+- [ ] Lazy-loading of components
+- [ ] Route guards and 404 fallback
 
-### 3.5. Accessibility (A11y) Best Practices
-
-- [ ] Semantic HTML/ARIA Suggestion  
-  - Input: HTML or component intent.
-  - Output: A11y enhancements via HTML/ARIA.
-  - Criteria: Valid and improves usability.
-
-- [ ] Accessibility Guideline Explanation  
-  - Input: Guideline query.
-  - Output: Explanation and implementation advice.
-  - Criteria: Clear and actionable.
+---
 
 ## 4. Non-Functional Requirements
 
-### 4.1. Performance
+### 4.1 Performance
 
-- [ ] LLM response latency for developers < 5 seconds.
-- [ ] LLM response latency for users < 2 seconds.
-- [ ] LLM service supports concurrent requests without slowdowns.
+- [ ] Initial load <2s (3G network)
+- [ ] Tree-shakable build, target size <50KB gzipped
+- [ ] Minimal dependency graph
 
-### 4.2. Accuracy & Relevance
+### 4.2 Compatibility
 
-- [ ] Generated information must be at least 95% accurate.
-- [ ] Outputs must be relevant to the SPA and context-aware.
-- [ ] Responses for similar prompts should be stylistically consistent.
+- [ ] Fully functional in modern browsers (Chrome, Firefox, Safari, Edge)
+- [ ] Graceful fallback for older browser support
 
-### 4.3. Data Privacy & Security
+### 4.3 Maintainability
 
-- [ ] No sensitive/PII data sent to LLM unless anonymized.
-- [ ] No data retention after processing.
-- [ ] All API communication must use HTTPS/TLS.
+- [ ] Modular structure (src/components, src/state, etc.)
+- [ ] `JSDoc` required for:
+  - [ ] All exported functions
+  - [ ] All modules and class methods
+- [ ] GitHub Discussions or README for extension strategy (auth, themes, i18n, etc.)
 
-### 4.4. Ethical Considerations
+---
 
-- [ ] Apply bias mitigation strategies for user-facing outputs.
-- [ ] Clearly label AI-generated content when displayed to users.
-- [ ] Prevent generation of harmful/inappropriate output.
+## 5. Testing & Documentation
 
-### 4.5. Maintainability & Scalability
+### 5.1 Testing
 
-- [ ] Set up a prompt versioning/management system.
-- [ ] Define model update integration process.
-- [ ] Ensure integration is scalable as demand grows.
+- [ ] Test-Driven Development (TDD) as workflow standard
+- [ ] Use [Vitest](https://vitest.dev) for:
+  - [ ] Unit testing (components, utilities)
+  - [ ] Integration testing (routing, storage)
+- [ ] Code coverage >90%
+- [ ] Test stubs/mocks for services
+- [ ] CI pipeline fails if coverage thresholds are not met
 
-## 5. Technical Requirements
+### 5.2 Documentation
 
-- [ ] Use RESTful or gRPC API for LLM communication.
-- [ ] Enforce API key or OAuth-based authentication.
-- [ ] Implement fallback if LLM fails or is offline.
-- [ ] Enable logging and monitoring of LLM interactions.
-- [ ] Avoid large third-party LLM client libraries unless necessary.
+- [ ] All modules and public interfaces must be documented with `JSDoc`
+- [ ] README files per major subdirectory
+- [ ] Auto-generate documentation with `vite-plugin-jsdoc` or equivalent
+- [ ] A `docs/` directory to store the static output (optional)
 
-## 6. Success Metrics & Evaluation
+---
 
-### Integration Success
+## 6. Tooling & Build System
 
-- [ ] % of developer tasks aided by LLM.
-- [ ] Reduced boilerplate time (via dev feedback).
-- [ ] Better user feedback on error messages.
+- [ ] Vite for dev server and production build
+- [ ] ESLint and Prettier config for formatting
+- [ ] Auto-reload with HMR in dev
+- [ ] Source maps in production build
 
-### Performance
+---
 
-- [ ] Average response time tracked for each feature.
-- [ ] Code/suggestion accuracy based on developer review.
-- [ ] User satisfaction surveys on LLM content.
+## 7. CI/CD Requirements
 
-### Security
+### 7.1 Framework CI/CD (GitHub Actions)
 
-- [ ] No data breaches or PII leaks.
-- [ ] Verified adherence to privacy rules.
+- [ ] Install dependencies
+- [ ] Run tests and linting
+- [ ] Build the framework
+- [ ] Upload artifacts or deploy to npm/GitHub Pages
 
-## 7. Open Questions / Dependencies
+### 7.2 Example App CI/CD (GitHub Actions)
 
-- [ ] Which LLM model (e.g., open-source vs. Gemini Pro)?
-- [ ] How will LLM usage costs be tracked/controlled?
-- [ ] What’s the fine-tuning and continual learning strategy?
-- [ ] Where will human oversight be required for critical flows?
+- [ ] Separate pipeline from core framework
+- [ ] Build and deploy demo app to GitHub Pages (or Netlify)
+- [ ] Auto-generate example documentation
+- [ ] Cache node_modules, build output for faster runs
+
+---
+
+## 8. Example App Requirements
+
+- [ ] Demonstrates routing, state, and storage
+- [ ] Built using the provided Web Component framework
+- [ ] Clean, maintainable layout with scalable design system
+- [ ] Enterprise-grade CSS (prefer BEM or utility class hybrid)
+- [ ] PWA support (manifest + service worker)
+- [ ] App installability and offline behavior
+
+---
+
+## 9. Developer Onboarding & Environment Setup
+
+- [ ] `README.md` for both the framework and example app
+- [ ] Setup instructions:
+  - [ ] Node version and package manager (e.g., npm, pnpm)
+  - [ ] `npm install`, `npm run dev`, `npm test`
+  - [ ] How to run the test suite locally
+  - [ ] How to lint and format code
+- [ ] Clear instructions for contributing, branching strategy, and CI behavior
+
+---
+
+## 10. Evaluation Criteria
+
+- [ ] GitHub Actions pipelines run reliably and pass all steps
+- [ ] Developer can clone repo, run the app locally in <5 min
+- [ ] All core features (routing, state, storage) work independently
+- [ ] Tests cover critical logic paths and run <5s
+- [ ] JSDoc covers all major components and utilities
+- [ ] Example app shows solid UI/UX and accessibility
